@@ -1,7 +1,7 @@
 {
-  "name": "webpack-template",
+  "name": "todo-list",
   "version": "1.0.0",
-  "description": "",
+  "description": "Manage your todos and projects efficiently",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
