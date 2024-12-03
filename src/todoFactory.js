@@ -7,8 +7,8 @@ export const todoFactory = () => {
 
   const printTodos = () => console.log(todos);
 
-  const addTodo = ({ title, description, dueDate, priority }) => {
-    const newTodo = new Todo(title, description, dueDate, priority);
+  const addTodo = ({ title, description, dueDate, priority, checked }) => {
+    const newTodo = new Todo(title, description, dueDate, priority, checked);
     todos.push(newTodo);
   };
 
