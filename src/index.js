@@ -1,24 +1,29 @@
 import "./styles.css";
-import { todoModule } from "./todoModule";
+import { projectFactory } from "./projectFactory";
 
-todoModule.printTodos();
-todoModule.addTodo({
+const projects = projectFactory();
+const project = projects.createProject("nig");
+
+project.todoList.printTodos();
+project.todoList.addTodo({
   title: "do sished",
   description: "just do the dishes",
   dueDate: "tomorrow",
   priority: "high",
 });
-todoModule.addTodo({
+project.todoList.addTodo({
   title: "mao",
   description: "just do the dishes",
   dueDate: "tomorrow",
 });
-todoModule.addTodo({
+project.todoList.addTodo({
   title: "sissy",
   description: "just do the dishes",
   dueDate: "today",
 });
-todoModule.editTodo("mao", "description", "hi");
+project.todoList.editTodo("mao", "description", "hi");
 
-todoModule.removeTodo("sissy");
-todoModule.printTodos();
+project.todoList.removeTodo("sissy");
+project.todoList.printTodos();
+
+projects.printProjects();
