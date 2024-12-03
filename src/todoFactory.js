@@ -1,6 +1,7 @@
 import Todo from "./todo";
-export const todoModule = (() => {
-  let todos = [];
+
+export const todoFactory = () => {
+  const todos = [];
 
   const getTodos = () => todos;
 
@@ -12,7 +13,9 @@ export const todoModule = (() => {
   };
 
   const removeTodo = (title) => {
-    todos = todos.filter((todo) => title !== todo.title);
+    const filteredTodos = todos.filter((todo) => title !== todo.title);
+    todos.length = 0; 
+    todos.push(...filteredTodos);
   };
 
   const editTodo = (title, key, newValue) => {
@@ -28,4 +31,4 @@ export const todoModule = (() => {
     editTodo,
     removeTodo,
   };
-})();
+};
