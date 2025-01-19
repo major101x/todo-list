@@ -6,7 +6,65 @@
     <title>Todo List</title>
   </head>
   <body>
-    <header></header>
-    <footer>Copyright &copy; 2024 Olayiwola Aroyeun</footer>
+    <div id="container">
+      <!-- SIDEBAR -->
+      <nav class="sidebar">
+        <div class="sidebar-header">
+          <button class="profile">
+            <img src="./assets/icons/you.svg" alt="your profile picture" />
+            <span class="profile-name">You</span>
+          </button>
+          <div class="top-sidebar-btns">
+            <button class="notification-icon">
+              <img
+                src="./assets/icons/notification.svg"
+                alt="notification toggle"
+              />
+            </button>
+            <button class="sidebar-icon" title="Open/Close sidebar">
+              <img
+                src="./assets/icons/sidebar-toggle.svg"
+                alt="sidebar toggle"
+              />
+            </button>
+          </div>
+        </div>
+        <div class="tasks-menu">
+          <div class="tasks-btn">
+            <h2>Tasks</h2>
+            <img src="./assets/icons/plus.svg" alt="add task button" />
+          </div>
+          <button class="all-tasks-btn">
+            <img src="./assets/icons/all-tasks.svg" alt="all tasks button" />
+            <div class="all-tasks">All Tasks</div>
+          </button>
+          <button class="today-tasks-btn">
+            <img src="./assets/icons/today.svg" alt="today's tasks button" />
+            <div class="today">Today</div>
+          </button>
+          <button class="upcoming-tasks-btn">
+            <img
+              src="./assets/icons/upcoming.svg"
+              alt="upcoming tasks button"
+            />
+            <div class="upcoming">Upcoming</div>
+          </button>
+          <button class="overdue-tasks-btn">
+            <img src="./assets/icons/overdue.svg" alt="overdue tasks button" />
+            <div class="overdue">Overdue</div>
+          </button>
+        </div>
+        <div class="projects-menu">
+          <div class="projects-btn">
+            <h2>My Projects</h2>
+            <img src="./assets/icons/plus.svg" alt="add project button" />
+          </div>
+        </div>
+      </nav>
+
+      <!-- TODO LIST CONTAINER -->
+      <div class="todo-container"></div>
+      <footer>Copyright &copy; 2024 Olayiwola Aroyeun</footer>
+    </div>
   </body>
 </html>
