@@ -20,7 +20,9 @@ export const projectFactory = () => {
   };
 
   const removeProject = (title) => {
-    projects = projects.filter((project) => title !== project.title);
+    const filteredProjects = projects.filter((project) => title !== project.title);
+    projects.length = 0;
+    projects.push(...filteredProjects);
   };
 
   const editProject = (title, newTitle) => {
