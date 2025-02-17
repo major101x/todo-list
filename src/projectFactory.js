@@ -20,7 +20,9 @@ export const projectFactory = () => {
   };
 
   const removeProject = (title) => {
-    const filteredProjects = projects.filter((project) => title !== project.title);
+    const filteredProjects = projects.filter(
+      (project) => title !== project.title
+    );
     projects.length = 0;
     projects.push(...filteredProjects);
   };
@@ -55,7 +57,7 @@ export const projectFactory = () => {
   const removeTodoFromProject = (projectTitle, todoTitle) => {
     const project = projects.find((project) => project.title === projectTitle);
     if (project) {
-      project.todoList.editTodo(todoTitle);
+      project.todoList.removeTodo(todoTitle);
     }
   };
 
