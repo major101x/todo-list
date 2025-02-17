@@ -1,4 +1,5 @@
 import Project from "./project";
+import { isToday, isThisWeek, isPast } from "date-fns";
 
 export const projectFactory = () => {
   const projects = [];
@@ -61,6 +62,26 @@ export const projectFactory = () => {
     }
   };
 
+  const getAllTodos = () => {
+    const allTodos = projects.flatMap((project) => project.todoList.getTodos());
+    return allTodos;
+  };
+
+  const getAllTodayTodos = () => {
+    const allTodos = projects.flatMap((project) => project.todoList.getTodos());
+    return allTodos.filter((todo) => isToday(new Date(todo.dueDate)));
+  };
+
+  const getAllUpcomingTodos = () => {
+    const allTodos = projects.flatMap((project) => project.todoList.getTodos());
+    return allTodos.filter((todo) => isThisWeek(new Date(todo.dueDate)));
+  };
+
+  const getAllOverdueTodos = () => {
+    const allTodos = projects.flatMap((project) => project.todoList.getTodos());
+    return allTodos.filter((todo) => isPast(new Date(todo.dueDate)));
+  };
+
   return {
     getProjects,
     printProjects,
@@ -71,5 +92,9 @@ export const projectFactory = () => {
     addTodoToProject,
     editTodoInProject,
     removeTodoFromProject,
+    getAllTodos,
+    getAllTodayTodos,
+    getAllUpcomingTodos,
+    getAllOverdueTodos,
   };
 };
