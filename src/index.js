@@ -4,35 +4,35 @@ import { projectFactory } from "./projectFactory";
 const projects = projectFactory();
 const project = projects.createProject("nig");
 
-project.todoList.addTodo({
+projects.addTodoToProject("nig", {
   title: "do sished",
   description: "just do the dishes",
   dueDate: "tomorrow",
   priority: "high",
   checked: true,
 });
-project.todoList.addTodo({
+projects.addTodoToProject("nig", {
   title: "mao",
   description: "just do the dishes",
   dueDate: "tomorrow",
   checked: false,
 });
-project.todoList.addTodo({
+projects.addTodoToProject("nig", {
   title: "sissy",
   description: "just do the dishes",
   dueDate: "today",
   checked: true,
 });
-project.todoList.addTodo({
+projects.addTodoToProject("nig", {
   title: "brock",
   description: "simpson",
   dueDate: "today",
   checked: true,
 });
-project.todoList.editTodo("mao", "description", "hi");
-project.todoList.editTodo("brock", "checked", false);
+projects.editTodoInProject("nig", "mao", "description", "hi");
+projects.editTodoInProject("nig", "brock", "checked", false);
 
-project.todoList.removeTodo("sissy");
-project.todoList.printTodos();
+projects.removeTodoFromProject("nig", "sissy");
+console.log(projects.getTodosInProject("nig"));
 
 projects.printProjects();
