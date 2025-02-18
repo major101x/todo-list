@@ -1,7 +1,8 @@
 import "./styles.css";
 import { projectFactory } from "./projectFactory";
+import { projectMenu } from "./projectMenu";
 
-const projects = projectFactory();
+export const projects = projectFactory();
 const project = projects.createProject("nig");
 
 projects.addTodoToProject("nig", {
@@ -42,3 +43,6 @@ console.log(projects.getAllTodos());
 console.log(projects.getAllTodayTodos());
 console.log(projects.getAllUpcomingTodos());
 console.log(projects.getAllOverdueTodos());
+
+console.log(projects.getProjects());
+projectMenu();
