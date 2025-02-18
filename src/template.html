@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo List</title>
+
+    <!-- Font Imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="container">
@@ -19,52 +27,74 @@
               <img
                 src="./assets/icons/notification.svg"
                 alt="notification toggle"
+                class="icon"
               />
             </button>
             <button class="sidebar-icon" title="Open/Close sidebar">
               <img
                 src="./assets/icons/sidebar-toggle.svg"
                 alt="sidebar toggle"
+                class="icon"
               />
             </button>
           </div>
         </div>
         <div class="tasks-menu">
-          <div class="tasks-btn">
+          <button class="tasks-btn">
             <h2>Tasks</h2>
-            <img src="./assets/icons/plus.svg" alt="add task button" />
-          </div>
+            <img
+              src="./assets/icons/plus.svg"
+              alt="add task button"
+              class="icon"
+            />
+          </button>
           <button class="all-tasks-btn">
-            <img src="./assets/icons/all-tasks.svg" alt="all tasks button" />
+            <img
+              src="./assets/icons/all-tasks.svg"
+              alt="all tasks button"
+              class="icon"
+            />
             <div class="all-tasks">All Tasks</div>
           </button>
           <button class="today-tasks-btn">
-            <img src="./assets/icons/today.svg" alt="today's tasks button" />
+            <img
+              src="./assets/icons/today.svg"
+              alt="today's tasks button"
+              class="icon"
+            />
             <div class="today">Today</div>
           </button>
           <button class="upcoming-tasks-btn">
             <img
               src="./assets/icons/upcoming.svg"
               alt="upcoming tasks button"
+              class="icon"
             />
             <div class="upcoming">Upcoming</div>
           </button>
           <button class="overdue-tasks-btn">
-            <img src="./assets/icons/overdue.svg" alt="overdue tasks button" />
+            <img
+              src="./assets/icons/overdue.svg"
+              alt="overdue tasks button"
+              class="icon"
+            />
             <div class="overdue">Overdue</div>
           </button>
         </div>
         <div class="projects-menu">
-          <div class="projects-btn">
-            <h2>My Projects</h2>
-            <img src="./assets/icons/plus.svg" alt="add project button" />
-          </div>
+          <button class="projects-btn">
+            <h2>Projects</h2>
+            <img
+              src="./assets/icons/plus.svg"
+              alt="add project button"
+              class="icon"
+            />
+          </button>
         </div>
       </nav>
 
       <!-- TODO LIST CONTAINER -->
       <div class="todo-container"></div>
-      <footer>Copyright &copy; 2024 Olayiwola Aroyeun</footer>
     </div>
   </body>
 </html>
