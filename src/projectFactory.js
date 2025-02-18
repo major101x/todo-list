@@ -37,7 +37,7 @@ export const projectFactory = () => {
   const getTodosInProject = (projectTitle) => {
     const project = projects.find((project) => project.title === projectTitle);
     if (project) {
-      project.todoList.getTodos();
+      return project.todoList.getTodos();
     }
   };
 
