@@ -1,4 +1,5 @@
 import { projects } from "./index.js";
+import { projectDisplay } from "./projectDisplay.js";
 
 export const projectMenu = () => {
   const projectMenu = document.querySelector(".projects-menu");
@@ -13,16 +14,8 @@ export const projectMenu = () => {
 
     projectItem.addEventListener("click", () => {
       const todoList = projects.getTodosInProject(project.title);
-
       const todoContainer = document.querySelector(".todo-container");
-      todoContainer.textContent = "";
-
-      todoList.forEach((todo) => {
-        const todoItem = document.createElement("div");
-        todoItem.classList.add("todo-item");
-        todoItem.textContent = todo.title;
-        todoContainer.appendChild(todoItem);
-      });
+      projectDisplay(project.title, todoList, todoContainer);
     });
   });
 };
