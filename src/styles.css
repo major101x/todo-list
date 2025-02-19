@@ -140,3 +140,21 @@ button:hover {
   justify-content: space-between;
   font-size: 1.6rem;
 }
+
+.todo-container {
+  width: 80%;
+  height: 100%;
+  padding: 4rem 2rem;
+  background-color: #ececf9;
+}
+
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  font-family: "poppins", sans-serif;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #000;
+  text-transform: capitalize;
+}
