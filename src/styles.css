@@ -150,11 +150,26 @@ button:hover {
 
 .todo-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: row;
+  gap: 0.8rem;
+  align-items: baseline;
+  justify-content: flex-start;
   margin-bottom: 2rem;
   font-family: "poppins", sans-serif;
   padding-bottom: 1rem;
   border-bottom: 1px solid #000;
   text-transform: capitalize;
+}
+
+.number-of-todos {
+  font-size: 2.4rem;
+  background-color: var(--accent);
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ececf9;
 }
