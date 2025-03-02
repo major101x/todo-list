@@ -2,9 +2,15 @@ import "./styles.css";
 import { projectFactory } from "./projectFactory";
 import { projectMenu } from "./projectMenu";
 
+// Calls the projectFactory function to initialize the projects object
 export const projects = projectFactory();
+
+/* TEST CODE. WILL BE REWRITTEN AFTER DEVELOPMENT PROCESS */
+
+// Creates a project
 const project = projects.createProject("nig");
 
+/* Adds todos to the project */
 projects.addTodoToProject("nig", {
   title: "do sished",
   description: "just do the dishes",
@@ -33,16 +39,22 @@ projects.addTodoToProject("nig", {
   priority: "none",
   checked: true,
 });
+
+/* Edits todos in the project */
 projects.editTodoInProject("nig", "mao", "description", "hi");
 projects.editTodoInProject("nig", "brock", "checked", false);
 
+/* Removes todos from the project */
 projects.removeTodoFromProject("nig", "sissy");
 console.log(projects.getTodosInProject("nig"));
 
+/* Tests general project functions */
 console.log(projects.getAllTodos());
 console.log(projects.getAllTodayTodos());
 console.log(projects.getAllUpcomingTodos());
 console.log(projects.getAllOverdueTodos());
 
 console.log(projects.getProjects());
+
+// Calls the projectMenu function
 projectMenu();
