@@ -4,6 +4,7 @@ import { projectMenu } from "./projectMenu";
 import { allTasksDisplay } from "./allTasksDisplay";
 import { todayTasksDisplay } from "./todayTasksDisplay";
 import { upcomingTasksDisplay } from "./upcomingTasksDisplay";
+import { overdueTasksDisplay } from "./overdueTasksDisplay";
 
 // Calls the projectFactory function to initialize the projects object
 export const projects = projectFactory();
@@ -14,8 +15,11 @@ const allTasksBtn = document.querySelector(".all-tasks-btn");
 // Selects the today tasks button
 const todayTasksBtn = document.querySelector(".today-tasks-btn");
 
-// Selects the today tasks button
+// Selects the upcoming tasks button
 const upcomingTasksBtn = document.querySelector(".upcoming-tasks-btn");
+
+// Selects the overdue tasks button
+const overdueTasksBtn = document.querySelector(".overdue-tasks-btn");
 
 /* TEST CODE. WILL BE REWRITTEN AFTER DEVELOPMENT PROCESS */
 
@@ -73,14 +77,19 @@ allTasksBtn.addEventListener("click", () => {
   allTasksDisplay();
 });
 
-// Displays all tasks
+// Displays today's tasks
 todayTasksBtn.addEventListener("click", () => {
   todayTasksDisplay();
 });
 
-// Displays all tasks
+// Displays upcoming tasks
 upcomingTasksBtn.addEventListener("click", () => {
   upcomingTasksDisplay();
+});
+
+// Displays overdue tasks
+overdueTasksBtn.addEventListener("click", () => {
+  overdueTasksDisplay();
 });
 
 // Calls the projectMenu function
