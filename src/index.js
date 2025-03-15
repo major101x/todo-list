@@ -3,6 +3,7 @@ import { projectFactory } from "./projectFactory";
 import { projectMenu } from "./projectMenu";
 import { allTasksDisplay } from "./allTasksDisplay";
 import { todayTasksDisplay } from "./todayTasksDisplay";
+import { upcomingTasksDisplay } from "./upcomingTasksDisplay";
 
 // Calls the projectFactory function to initialize the projects object
 export const projects = projectFactory();
@@ -12,6 +13,9 @@ const allTasksBtn = document.querySelector(".all-tasks-btn");
 
 // Selects the today tasks button
 const todayTasksBtn = document.querySelector(".today-tasks-btn");
+
+// Selects the today tasks button
+const upcomingTasksBtn = document.querySelector(".upcoming-tasks-btn");
 
 /* TEST CODE. WILL BE REWRITTEN AFTER DEVELOPMENT PROCESS */
 
@@ -72,6 +76,11 @@ allTasksBtn.addEventListener("click", () => {
 // Displays all tasks
 todayTasksBtn.addEventListener("click", () => {
   todayTasksDisplay();
+});
+
+// Displays all tasks
+upcomingTasksBtn.addEventListener("click", () => {
+  upcomingTasksDisplay();
 });
 
 // Calls the projectMenu function
