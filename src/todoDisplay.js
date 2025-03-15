@@ -2,8 +2,6 @@ import editIcon from "./assets/icons/edit.svg";
 import deleteIcon from "./assets/icons/delete.svg";
 
 export const todoDisplay = (todoList, todoContainer) => {
-  // Clear previous content
-  todoContainer.textContent = "";
 
   // Create container for todo items
   const todoListContainer = document.createElement("div");
