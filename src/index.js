@@ -1,9 +1,13 @@
 import "./styles.css";
 import { projectFactory } from "./projectFactory";
 import { projectMenu } from "./projectMenu";
+import { allTasksDisplay } from "./allTasksDisplay";
 
 // Calls the projectFactory function to initialize the projects object
 export const projects = projectFactory();
+
+// Selects the all tasks button
+const allTasksBtn = document.querySelector(".all-tasks-btn");
 
 /* TEST CODE. WILL BE REWRITTEN AFTER DEVELOPMENT PROCESS */
 
@@ -55,6 +59,11 @@ console.log(projects.getAllUpcomingTodos());
 console.log(projects.getAllOverdueTodos());
 
 console.log(projects.getProjects());
+
+// Displays all tasks
+allTasksBtn.addEventListener("click", () => {
+  allTasksDisplay();
+});
 
 // Calls the projectMenu function
 projectMenu();
