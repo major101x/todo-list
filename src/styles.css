@@ -19,8 +19,6 @@
   box-sizing: border-box;
 }
 
-/* VARIABLES */
-
 /* GLOBAL STYLES */
 html {
   font-size: 10px;
@@ -120,7 +118,8 @@ button:hover {
   font-size: 1.8rem;
 }
 
-.tasks-menu button.tasks-btn {
+.tasks-menu .tasks-header {
+  display: flex;
   justify-content: space-between;
   font-size: 1.6rem;
 }
@@ -140,7 +139,8 @@ button:hover {
   text-transform: capitalize;
 }
 
-.projects-menu button.projects-btn {
+.projects-menu .projects-header {
+  display: flex;
   justify-content: space-between;
   font-size: 1.6rem;
 }
@@ -233,7 +233,7 @@ button:hover {
 .todo-item:hover {
   background-color: var(--secondary);
   color: var(--text);
-} 
+}
 
 .todo-item button {
   display: flex;
