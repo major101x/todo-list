@@ -2,12 +2,16 @@ import "./styles.css";
 import { projectFactory } from "./projectFactory";
 import { projectMenu } from "./projectMenu";
 import { allTasksDisplay } from "./allTasksDisplay";
+import { todayTasksDisplay } from "./todayTasksDisplay";
 
 // Calls the projectFactory function to initialize the projects object
 export const projects = projectFactory();
 
 // Selects the all tasks button
 const allTasksBtn = document.querySelector(".all-tasks-btn");
+
+// Selects the today tasks button
+const todayTasksBtn = document.querySelector(".today-tasks-btn");
 
 /* TEST CODE. WILL BE REWRITTEN AFTER DEVELOPMENT PROCESS */
 
@@ -63,6 +67,11 @@ console.log(projects.getProjects());
 // Displays all tasks
 allTasksBtn.addEventListener("click", () => {
   allTasksDisplay();
+});
+
+// Displays all tasks
+todayTasksBtn.addEventListener("click", () => {
+  todayTasksDisplay();
 });
 
 // Calls the projectMenu function
