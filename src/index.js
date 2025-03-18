@@ -5,6 +5,7 @@ import { allTasksDisplay } from "./allTasksDisplay";
 import { todayTasksDisplay } from "./todayTasksDisplay";
 import { upcomingTasksDisplay } from "./upcomingTasksDisplay";
 import { overdueTasksDisplay } from "./overdueTasksDisplay";
+import { addProjectModal, addTaskModal } from "./modals";
 
 // Calls the projectFactory function to initialize the projects object
 export const projects = projectFactory();
@@ -91,6 +92,12 @@ upcomingTasksBtn.addEventListener("click", () => {
 overdueTasksBtn.addEventListener("click", () => {
   overdueTasksDisplay();
 });
+
+// Allows the creation of tasks
+addTaskModal();
+
+// Allows the creation on projects
+addProjectModal();
 
 // Calls the projectMenu function
 projectMenu();
