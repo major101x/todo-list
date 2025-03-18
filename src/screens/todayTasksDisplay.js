@@ -1,5 +1,5 @@
-import { todoDisplay } from "./todoDisplay";
-import { projects } from "./index.js";
+import { todoDisplay } from "../components/todoDisplay.js";
+import { projects } from "../index.js";
 
 export const todayTasksDisplay = () => {
   // Gets all todos in all projects

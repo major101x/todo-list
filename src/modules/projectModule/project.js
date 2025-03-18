@@ -1,4 +1,4 @@
-import { todoFactory } from "./todoFactory";
+import { todoFactory } from "../todoModule/todoFactory";
 export default class Project {
   constructor(title) {
     this.title = title;

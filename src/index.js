@@ -1,11 +1,13 @@
 import "./styles.css";
-import { projectFactory } from "./projectFactory";
-import { projectMenu } from "./projectMenu";
-import { allTasksDisplay } from "./allTasksDisplay";
-import { todayTasksDisplay } from "./todayTasksDisplay";
-import { upcomingTasksDisplay } from "./upcomingTasksDisplay";
-import { overdueTasksDisplay } from "./overdueTasksDisplay";
-import { addProjectModal, addTaskModal } from "./modals";
+import { projectFactory } from "./modules/projectModule/projectFactory";
+import { projectMenu } from "./components/projectMenu";
+import {
+  allTasksDisplay,
+  todayTasksDisplay,
+  upcomingTasksDisplay,
+  overdueTasksDisplay,
+} from "./screens";
+import { addProjectModal, addTaskModal } from "./components/modals";
 
 // Calls the projectFactory function to initialize the projects object
 export const projects = projectFactory();

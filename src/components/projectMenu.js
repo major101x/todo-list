@@ -1,4 +1,4 @@
-import { projects } from "./index.js";
+import { projects } from "../index.js";
 import { projectDisplay } from "./projectDisplay.js";
 
 export const projectMenu = () => {
