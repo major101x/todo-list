@@ -27,7 +27,9 @@ const overdueTasksBtn = document.querySelector(".overdue-tasks-btn");
 /* TEST CODE. WILL BE REWRITTEN AFTER DEVELOPMENT PROCESS */
 
 // Creates a project
-const project = projects.createProject("nig");
+const nig = projects.createProject("nig");
+const silo = projects.createProject("silo");
+const prop = projects.createProject("prop");
 
 /* Adds todos to the project */
 projects.addTodoToProject("nig", {
@@ -59,6 +61,28 @@ projects.addTodoToProject("nig", {
   checked: true,
 });
 
+projects.addTodoToProject("silo", {
+  title: "cross",
+  description: "there is a cross",
+  dueDate: "2025-02-17",
+  priority: "low",
+  checked: false,
+});
+projects.addTodoToProject("prop", {
+  title: "mag",
+  description: "mag as in magnificient",
+  dueDate: "2025-02-27",
+  priority: "medium",
+  checked: true,
+});
+projects.addTodoToProject("silo", {
+  title: "truly",
+  description: "lorem ipsum dollar sit on it",
+  dueDate: "2025-02-13",
+  priority: "none",
+  checked: true,
+});
+
 /* Edits todos in the project */
 projects.editTodoInProject("nig", "mao", "description", "hi");
 projects.editTodoInProject("nig", "brock", "checked", false);
@@ -66,6 +90,7 @@ projects.editTodoInProject("nig", "brock", "checked", false);
 /* Removes todos from the project */
 projects.removeTodoFromProject("nig", "sissy");
 console.log(projects.getTodosInProject("nig"));
+console.log(projects.getProjects());
 
 /* Tests general project functions */
 console.log(projects.getAllTodos());
