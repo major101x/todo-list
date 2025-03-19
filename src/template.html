@@ -110,12 +110,23 @@
         </div>
         <div class="dialog-middle">
           <input type="date" name="due-date" id="due-date" />
-          <select name="task-priority" id="task-priority"></select>
+          <select name="task-priority" id="task-priority">
+            <option value="">No priority</option>
+            <option value="low" class="lowPriority-text">Low priority</option>
+            <option value="medium" class="mediumPriority-text">
+              Medium priority
+            </option>
+            <option value="high" class="highPriority-text">
+              High priority
+            </option>
+          </select>
         </div>
         <div class="dialog-bottom">
           <select name="task-project" id="task-project"></select>
           <div class="dialog-actions">
-            <button type="button" class="cancel-btn add-task-cancel">Cancel</button>
+            <button type="button" class="cancel-btn add-task-cancel">
+              Cancel
+            </button>
             <button type="button" class="confirm-btn add-task-confirm">
               Add Task
             </button>
