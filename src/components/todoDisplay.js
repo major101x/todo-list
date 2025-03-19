@@ -89,6 +89,7 @@ export const todoDisplay = (todoList, todoContainer) => {
     // Event listener to update the checked status and refresh the UI
     todoItemCheckbox.addEventListener("change", () => {
       todo.checked = todoItemCheckbox.checked;
+      todoListContainer.textContent = "";
       todoDisplay(todoList, todoContainer);
       console.log(todo);
     });
