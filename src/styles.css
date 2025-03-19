@@ -150,6 +150,12 @@ button:hover {
   font-size: 1.6rem;
 }
 
+.projects-menu .projects-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 /* TODO CONTAINER */
 .todo-container {
   width: 80%;

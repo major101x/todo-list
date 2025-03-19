@@ -3,7 +3,7 @@ import { projectDisplay } from "./projectDisplay.js";
 
 export const projectMenu = () => {
   // Selects the projects menu
-  const projectMenu = document.querySelector(".projects-menu");
+  const projectMenu = document.querySelector(".projects-container");
 
   // Gets the project list
   const projectList = projects.getProjects();
