@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -105,8 +105,8 @@
       <!-- Add Task Modal -->
       <dialog id="add-task-modal">
         <div class="dialog-top">
-          <input type="text" id="task-title" />
-          <input type="text" id="task-description" />
+          <input type="text" id="task-title" placeholder="Title" />
+          <input type="text" id="task-description" placeholder="Description" />
         </div>
         <div class="dialog-middle">
           <input type="date" name="due-date" id="due-date" />
@@ -115,8 +115,10 @@
         <div class="dialog-bottom">
           <select name="task-project" id="task-project"></select>
           <div class="dialog-actions">
-            <button type="button" class="add-task-cancel">Cancel</button>
-            <button type="button" class="add-task-confirm">Add Task</button>
+            <button type="button" class="cancel-btn add-task-cancel">Cancel</button>
+            <button type="button" class="confirm-btn add-task-confirm">
+              Add Task
+            </button>
           </div>
         </div>
       </dialog>
@@ -124,12 +126,14 @@
       <!-- Add Project Modal -->
       <dialog id="add-project-modal">
         <div class="dialog-top">
-          <input type="text" id="project-title" />
+          <input type="text" id="project-title" placeholder="Project Title" />
         </div>
         <div class="dialog-bottom">
           <div class="dialog-actions">
-            <button type="button" class="add-project-cancel">Cancel</button>
-            <button type="button" class="add-project-confirm">
+            <button type="button" class="cancel-btn add-project-cancel">
+              Cancel
+            </button>
+            <button type="button" class="confirm-btn add-project-confirm">
               Add Project
             </button>
           </div>

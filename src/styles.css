@@ -3,6 +3,10 @@
   --text: #05100f;
   --background: #e8f8f7;
   --background-100: #d8f3f1;
+  --background-200: #b1e7e3;
+  --background-300: #8adbd6;
+  --background-400: #63cfc8;
+  --background-500: #3cc3ba;
   --primary: #306a9c;
   --secondary: #b9bae9;
   --secondaryHover: #8b8cda;
@@ -61,6 +65,7 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   height: 100%;
+  font-family: "poppins", sans-serif;
 }
 
 /* SIDEBAR */
@@ -290,4 +295,130 @@ button:hover {
 .todo-item-date {
   font-size: 1.6rem;
   margin-right: 3.6rem;
+}
+
+/* MODALS */
+dialog {
+  margin: 150px auto auto;
+  border-radius: 4px;
+  padding: 16px;
+  background-color: var(--background);
+  border: 2px solid #999;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 600px;
+}
+
+dialog input,
+dialog select {
+  border: none;
+  outline: none;
+  font-family: inherit;
+  color: (var(--text));
+  cursor: pointer;
+}
+
+dialog input[type="text"] {
+  background-color: transparent;
+}
+
+dialog button {
+  font-size: 1.6rem;
+  padding: 4px 12px;
+}
+
+dialog .cancel-btn {
+  background-color: #999;
+}
+
+dialog .cancel-btn:hover {
+  background-color: var(--secondaryHover);
+}
+
+dialog .confirm-btn {
+  margin-left: 8px;
+  color: #fff;
+  background-color: var(--accent);
+}
+
+dialog .confirm-btn:hover {
+  color: var(--text);
+  background-color: var(--secondaryHover);
+}
+
+#add-task-modal .dialog-top {
+  display: flex;
+  flex-direction: column;
+}
+
+#add-task-modal .dialog-top input {
+  background-color: transparent;
+}
+
+#add-task-modal input#task-title {
+  color: (var(--text));
+  font-size: 2.8rem;
+  font-weight: 800;
+}
+
+#add-task-modal input#task-title::placeholder {
+  font-size: 2.8rem;
+  opacity: 50%;
+}
+
+#add-task-modal input#task-description {
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+}
+
+#add-task-modal input#task-description::placeholder {
+  font-size: 1.6rem;
+  opacity: 50%;
+}
+
+#add-task-modal input#due-date {
+  font-size: 1.6rem;
+  background-color: #999;
+  border-radius: 2px;
+  padding: 4px;
+  margin-right: 16px;
+}
+
+#add-task-modal select {
+  background-color: #999;
+  padding: 4px;
+  border-radius: 2px;
+  font-size: 1.6rem;
+}
+
+#add-task-modal .dialog-middle {
+  margin-bottom: 20px;
+}
+
+#add-task-modal .dialog-bottom {
+  padding-top: 20px;
+  border-top: 1px solid #999;
+  display: flex;
+  justify-content: space-between;
+}
+
+#add-project-modal input#project-title {
+  color: (var(--text));
+  font-size: 2.8rem;
+  font-weight: 800;
+}
+
+#add-project-modal .dialog-top {
+  margin-bottom: 20px;
+}
+
+#add-project-modal .dialog-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+#add-project-modal input#project-title::placeholder {
+  color: (var(--text));
+  font-size: 2.8rem;
+  opacity: 50%;
 }
