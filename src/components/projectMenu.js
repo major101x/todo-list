@@ -1,5 +1,6 @@
 import { projects } from "../index.js";
 import { projectDisplay } from "./projectDisplay.js";
+import projectIcon from "../assets/icons/project.svg";
 
 export const projectMenu = () => {
   // Selects the projects menu
@@ -12,8 +13,17 @@ export const projectMenu = () => {
   projectList.forEach((project) => {
     const projectItem = document.createElement("button");
     projectItem.classList.add("project-item");
-    projectItem.textContent = project.title;
     projectMenu.appendChild(projectItem);
+
+    const projectIconElem = document.createElement("img");
+    projectIconElem.classList.add("icon");
+    projectIconElem.src = projectIcon;
+    projectItem.appendChild(projectIconElem);
+
+    const projectItemTitle = document.createElement("div");
+    projectItemTitle.classList.add("project-item-title");
+    projectItemTitle.textContent = project.title;
+    projectItem.appendChild(projectItemTitle);
 
     // Event listener to display the project's todos when clicked
     projectItem.addEventListener("click", () => {
