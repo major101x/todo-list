@@ -1,5 +1,6 @@
 import { projects } from "../index";
 import { projectDisplay } from "./projectDisplay";
+import { projectMenu } from "./projectMenu";
 import { todoDisplay } from "./todoDisplay";
 
 const openModal = (modal) => {
@@ -69,6 +70,9 @@ export const addProjectModal = () => {
   const addProjectModalElem = document.querySelector("#add-project-modal");
   const addProjectBtn = document.querySelector(".add-project-btn");
   const closeAddProjectModalBtn = document.querySelector(".add-project-cancel");
+  const projectTitleInput = document.querySelector("#project-title");
+  const confirmBtn = document.querySelector(".add-project-confirm");
+  const projectMenuDiv = document.querySelector(".projects-container");
 
   // Opens the add project modal
   addProjectBtn.addEventListener("click", () => openModal(addProjectModalElem));
@@ -77,4 +81,13 @@ export const addProjectModal = () => {
   closeAddProjectModalBtn.addEventListener("click", () =>
     closeModal(addProjectModalElem)
   );
+
+  // Creates a new project,clears inputs and re-renders the project menu
+  confirmBtn.addEventListener("click", () => {
+    projects.createProject(projectTitleInput.value);
+    closeModal(addProjectModalElem);
+    projectTitleInput.value = "";
+    projectMenuDiv.textContent = "";
+    projectMenu();
+  });
 };
