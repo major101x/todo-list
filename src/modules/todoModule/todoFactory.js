@@ -2,7 +2,7 @@ import Todo from "./todo";
 
 // Factory function for managing a collection of todo instances
 export const todoFactory = () => {
-  const todos = [];
+  let todos = [];
 
   // Returns all todos
   const getTodos = () => todos;
@@ -13,20 +13,18 @@ export const todoFactory = () => {
   // Adds a new todo to the todoList
   const addTodo = ({ title, description, dueDate, priority, checked }) => {
     const newTodo = new Todo(title, description, dueDate, priority, checked);
-    todos.push(newTodo);
+    todos = [...todos, newTodo];
   };
 
   // Removes a todo by title
   const removeTodo = (title) => {
-    const filteredTodos = todos.filter((todo) => title !== todo.title);
-    todos.length = 0;
-    todos.push(...filteredTodos);
+    todos = todos.filter((todo) => todo.title !== title);
   };
 
   // Edits a todo's property by title
-  const editTodo = (title, key, newValue) => {
-    todos.forEach((todo) =>
-      title === todo.title ? (todo[key] = newValue) : todo
+  const editTodo = (title, valuesObject) => {
+    todos = todos.map((todo) =>
+      todo.title === title ? { ...todo, ...valuesObject } : todo
     );
   };
 
