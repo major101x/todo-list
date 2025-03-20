@@ -13,28 +13,28 @@ export const todoMenu = () => {
       btnClass: "all-tasks-btn",
       iconSrc: allTasksIcon,
       taskTitleClass: "all-tasks",
-      todos: projects.getAllTodos(),
+      todos: projects.getAllTodos,
     },
     {
       title: "Today",
       btnClass: "today-tasks-btn",
       iconSrc: todayTasksIcon,
       taskTitleClass: "today",
-      todos: projects.getAllTodayTodos(),
+      todos: projects.getAllTodayTodos,
     },
     {
       title: "Upcoming",
       btnClass: "upcoming-tasks-btn",
       iconSrc: upcomingTasksIcon,
       taskTitleClass: "upcoming",
-      todos: projects.getAllUpcomingTodos(),
+      todos: projects.getAllUpcomingTodos,
     },
     {
       title: "Overdue",
       btnClass: "overdue-tasks-btn",
       iconSrc: overdueTasksIcon,
       taskTitleClass: "overdue",
-      todos: projects.getAllOverdueTodos(),
+      todos: projects.getAllOverdueTodos,
     },
   ];
 
@@ -69,7 +69,7 @@ export const todoMenu = () => {
     taskItem.appendChild(todosLength);
 
     taskItem.addEventListener("click", () => {
-      todoDisplay(item.todos, item.title);
+      todoDisplay(item.todos(), item.title);
     });
   });
 };
