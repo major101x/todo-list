@@ -79,7 +79,7 @@ export const todoMenu = () => {
     taskItem.appendChild(todosLength);
 
     taskItem.addEventListener("click", () => {
-      item.display();
+      todoDisplay(item.todos, item.title);
     });
   });
 };

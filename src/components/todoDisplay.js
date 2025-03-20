@@ -1,7 +1,29 @@
 import editIcon from "../assets/icons/edit.svg";
 import deleteIcon from "../assets/icons/delete.svg";
 
-export const todoDisplay = (todoList, todoContainer) => {
+export const todoDisplay = (todoList, todoTitle) => {
+  // Select the todo container
+  const todoContainer = document.querySelector(".todo-container");
+
+  // Clear previous content
+  todoContainer.textContent = "";
+
+  // Create and append the todo header section
+  const todoHeader = document.createElement("div");
+  todoHeader.classList.add("todo-header");
+  todoContainer.appendChild(todoHeader);
+
+  // Display project title
+  const todoTitleElement = document.createElement("h1");
+  todoTitleElement.classList.add("project-title");
+  todoTitleElement.textContent = todoTitle;
+  todoHeader.appendChild(todoTitleElement);
+
+  // Display the number of todos in the project
+  const numberOfTodos = document.createElement("p");
+  numberOfTodos.classList.add("number-of-todos");
+  numberOfTodos.textContent = `${todoList.length}`;
+  todoHeader.appendChild(numberOfTodos);
 
   // Create container for todo items
   const todoListContainer = document.createElement("div");
@@ -89,8 +111,7 @@ export const todoDisplay = (todoList, todoContainer) => {
     // Event listener to update the checked status and refresh the UI
     todoItemCheckbox.addEventListener("change", () => {
       todo.checked = todoItemCheckbox.checked;
-      todoListContainer.textContent = "";
-      todoDisplay(todoList, todoContainer);
+      todoDisplay(todoList, todoTitle);
       console.log(todo);
     });
   });
