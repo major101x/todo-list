@@ -1,19 +1,17 @@
 import { projects } from "../index";
-import { projectDisplay } from "./projectDisplay";
 import { projectMenu } from "./projectMenu";
 import { todoDisplay } from "./todoDisplay";
 
-const openModal = (modal) => {
+export const openModal = (modal) => {
   modal.showModal();
 };
 
-const closeModal = (modal) => {
+export const closeModal = (modal) => {
   modal.close();
 };
 
 export const addTaskModal = () => {
   const addTaskModalElem = document.querySelector("#add-task-modal");
-  const addTaskBtn = document.querySelector(".add-task-btn");
   const closeAddTaskModalBtn = document.querySelector(".add-task-cancel");
   const titleInput = document.querySelector("#task-title");
   const descriptionInput = document.querySelector("#task-description");
@@ -23,6 +21,7 @@ export const addTaskModal = () => {
   const confirmBtn = document.querySelector(".add-task-confirm");
   const todoContainer = document.querySelector(".todo-container");
   const allInputs = document.querySelectorAll("#add-task-modal input");
+  const addTaskForm = document.querySelector("#add-task-modal form");
 
   // Gets the project titles
   const taskProjectSelectOptions = projects
@@ -36,16 +35,18 @@ export const addTaskModal = () => {
     taskProjectSelect.appendChild(projectOption);
   });
 
-  // Opens the add task modal
-  addTaskBtn.addEventListener("click", () => openModal(addTaskModalElem));
-
   // Closes the add task modal
   closeAddTaskModalBtn.addEventListener("click", () =>
     closeModal(addTaskModalElem)
   );
 
   // Creates a new todo and re-renders the project display
-  confirmBtn.addEventListener("click", () => {
+  confirmBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    if (!addTaskForm.checkValidity()) {
+      addTaskForm.reportValidity();
+      return;
+    }
     projects.addTodoToProject(taskProjectSelect.value, {
       title: titleInput.value,
       description: descriptionInput.value,
@@ -53,10 +54,9 @@ export const addTaskModal = () => {
       priority: taskPrioritySelect.value,
       checked: false,
     });
-    projectDisplay(
-      taskProjectSelect.value,
+    todoDisplay(
       projects.getTodosInProject(taskProjectSelect.value),
-      todoContainer
+      taskProjectSelect.value
     );
     closeModal(addTaskModalElem);
 
@@ -68,22 +68,24 @@ export const addTaskModal = () => {
 
 export const addProjectModal = () => {
   const addProjectModalElem = document.querySelector("#add-project-modal");
-  const addProjectBtn = document.querySelector(".add-project-btn");
   const closeAddProjectModalBtn = document.querySelector(".add-project-cancel");
   const projectTitleInput = document.querySelector("#project-title");
   const confirmBtn = document.querySelector(".add-project-confirm");
   const projectMenuDiv = document.querySelector(".projects-container");
-
-  // Opens the add project modal
-  addProjectBtn.addEventListener("click", () => openModal(addProjectModalElem));
+  const addProjectForm = document.querySelector("#add-project-modal form");
 
   // Closes the add project modal
-  closeAddProjectModalBtn.addEventListener("click", () =>
-    closeModal(addProjectModalElem)
-  );
+  closeAddProjectModalBtn.addEventListener("click", () => {
+    closeModal(addProjectModalElem);
+  });
 
   // Creates a new project,clears inputs and re-renders the project menu
-  confirmBtn.addEventListener("click", () => {
+  confirmBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    if (!addProjectForm.checkValidity()) {
+      addProjectForm.reportValidity();
+      return;
+    }
     projects.createProject(projectTitleInput.value);
     closeModal(addProjectModalElem);
     projectTitleInput.value = "";

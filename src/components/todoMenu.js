@@ -4,12 +4,6 @@ import upcomingTasksIcon from "../assets/icons/upcoming.svg";
 import overdueTasksIcon from "../assets/icons/overdue.svg";
 import { projects } from "..";
 import { todoDisplay } from "./todoDisplay";
-import {
-  allTasksDisplay,
-  todayTasksDisplay,
-  upcomingTasksDisplay,
-  overdueTasksDisplay,
-} from "../screens";
 
 export const todoMenu = () => {
   // Create task items to render
@@ -20,7 +14,6 @@ export const todoMenu = () => {
       iconSrc: allTasksIcon,
       taskTitleClass: "all-tasks",
       todos: projects.getAllTodos(),
-      display: allTasksDisplay,
     },
     {
       title: "Today",
@@ -28,7 +21,6 @@ export const todoMenu = () => {
       iconSrc: todayTasksIcon,
       taskTitleClass: "today",
       todos: projects.getAllTodayTodos(),
-      display: todayTasksDisplay,
     },
     {
       title: "Upcoming",
@@ -36,7 +28,6 @@ export const todoMenu = () => {
       iconSrc: upcomingTasksIcon,
       taskTitleClass: "upcoming",
       todos: projects.getAllUpcomingTodos(),
-      display: upcomingTasksDisplay,
     },
     {
       title: "Overdue",
@@ -44,7 +35,6 @@ export const todoMenu = () => {
       iconSrc: overdueTasksIcon,
       taskTitleClass: "overdue",
       todos: projects.getAllOverdueTodos(),
-      display: overdueTasksDisplay,
     },
   ];
 

@@ -1,5 +1,4 @@
 import { projects } from "../index.js";
-import { projectDisplay } from "./projectDisplay.js";
 import projectIcon from "../assets/icons/project.svg";
 import { todoDisplay } from "./todoDisplay.js";
 
@@ -38,7 +37,6 @@ export const projectMenu = () => {
     // Event listener to display the project's todos when clicked
     projectItem.addEventListener("click", () => {
       const todoList = projects.getTodosInProject(project.title);
-      // projectDisplay(project.title, todoList, todoContainer);
       todoDisplay(todoList, project.title);
     });
   });

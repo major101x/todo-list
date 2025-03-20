@@ -1,23 +1,17 @@
 import "./styles.css";
 import { projectFactory } from "./modules/projectModule/projectFactory";
 import { projectMenu } from "./components/projectMenu";
-import { addProjectModal, addTaskModal } from "./components/modals";
+import { addProjectModal, addTaskModal, openModal } from "./components/modals";
 import { todoMenu } from "./components/todoMenu";
 
 // Calls the projectFactory function to initialize the projects object
 export const projects = projectFactory();
 
-// Selects the all tasks button
-const allTasksBtn = document.querySelector(".all-tasks-btn");
+const addTaskModalElem = document.querySelector("#add-task-modal");
+const addTaskBtn = document.querySelector(".add-task-btn");
 
-// Selects the today tasks button
-const todayTasksBtn = document.querySelector(".today-tasks-btn");
-
-// Selects the upcoming tasks button
-const upcomingTasksBtn = document.querySelector(".upcoming-tasks-btn");
-
-// Selects the overdue tasks button
-const overdueTasksBtn = document.querySelector(".overdue-tasks-btn");
+const addProjectModalElem = document.querySelector("#add-project-modal");
+const addProjectBtn = document.querySelector(".add-project-btn");
 
 /* TEST CODE. WILL BE REWRITTEN AFTER DEVELOPMENT PROCESS */
 
@@ -95,11 +89,15 @@ console.log(projects.getAllOverdueTodos());
 
 console.log(projects.getProjects());
 
-// Allows the creation of tasks
-addTaskModal();
+addTaskBtn.addEventListener("click", () => {
+  openModal(addTaskModalElem);
+  addTaskModal();
+});
 
-// Allows the creation on projects
-addProjectModal();
+addProjectBtn.addEventListener("click", () => {
+  openModal(addProjectModalElem);
+  addProjectModal();
+});
 
 // Displays the todo menu
 todoMenu();
