@@ -74,8 +74,8 @@ projects.addTodoToProject("silo", {
 });
 
 /* Edits todos in the project */
-projects.editTodoInProject("nig", "mao", "description", "hi");
-projects.editTodoInProject("nig", "brock", "checked", false);
+projects.editTodoInProject("nig", "mao", {"description": "hi"});
+projects.editTodoInProject("nig", "brock", {"checked": false});
 
 /* Removes todos from the project */
 projects.removeTodoFromProject("nig", "sissy");
@@ -89,6 +89,8 @@ console.log(projects.getAllUpcomingTodos());
 console.log(projects.getAllOverdueTodos());
 
 console.log(projects.getProjects());
+
+console.log(projects.getTodoParentProject("cross"));
 
 addTaskBtn.addEventListener("click", () => {
   openModal(addTaskModalElem);
