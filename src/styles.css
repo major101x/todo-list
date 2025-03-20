@@ -399,37 +399,37 @@ dialog .confirm-btn:hover {
   background-color: var(--secondaryHover);
 }
 
-#add-task-modal .dialog-top {
+.add-or-edit-modal .dialog-top {
   display: flex;
   flex-direction: column;
 }
 
-#add-task-modal .dialog-top input {
+.add-or-edit-modal .dialog-top input {
   background-color: transparent;
 }
 
-#add-task-modal input#task-title {
+.add-or-edit-modal input#task-title {
   color: (var(--text));
   font-size: 2.8rem;
   font-weight: 800;
 }
 
-#add-task-modal input#task-title::placeholder {
+.add-or-edit-modal input#task-title::placeholder {
   font-size: 2.8rem;
   opacity: 50%;
 }
 
-#add-task-modal input#task-description {
+.add-or-edit-modal input#task-description {
   font-size: 1.6rem;
   margin-bottom: 16px;
 }
 
-#add-task-modal input#task-description::placeholder {
+.add-or-edit-modal input#task-description::placeholder {
   font-size: 1.6rem;
   opacity: 50%;
 }
 
-#add-task-modal input#due-date {
+.add-or-edit-modal input#due-date {
   font-size: 1.6rem;
   background-color: #999;
   border-radius: 2px;
@@ -437,42 +437,43 @@ dialog .confirm-btn:hover {
   margin-right: 16px;
 }
 
-#add-task-modal select {
+.add-or-edit-modal select {
   background-color: #999;
   padding: 4px;
   border-radius: 2px;
   font-size: 1.6rem;
 }
 
-#add-task-modal .dialog-middle {
+.add-or-edit-modal .dialog-middle {
   margin-bottom: 20px;
 }
 
-#add-task-modal .dialog-bottom {
+.add-or-edit-modal .dialog-bottom {
   padding-top: 20px;
   border-top: 1px solid #999;
   display: flex;
   justify-content: space-between;
 }
 
-#add-project-modal input#project-title {
+.add-or-edit-modal input#project-title {
   color: (var(--text));
   font-size: 2.8rem;
   font-weight: 800;
 }
 
-#add-project-modal .dialog-top {
+.add-or-edit-modal .dialog-top {
   margin-bottom: 20px;
 }
 
-#add-project-modal .dialog-bottom {
+.add-or-edit-modal .dialog-bottom {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
-#add-project-modal input#project-title::placeholder {
+.add-or-edit-modal input#project-title::placeholder {
   color: (var(--text));
   font-size: 2.8rem;
   opacity: 50%;
 }
+
