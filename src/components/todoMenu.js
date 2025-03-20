@@ -41,6 +41,8 @@ export const todoMenu = () => {
   // Selects the todo menu
   const todosMenu = document.querySelector(".tasks-container");
 
+  todosMenu.textContent = "";
+
   // Creates task items and renders them on the todos menu
   taskItems.forEach((item) => {
     const taskItem = document.createElement("button");
@@ -65,7 +67,7 @@ export const todoMenu = () => {
 
     const todosLength = document.createElement("span");
     todosLength.classList.add("todo-length");
-    todosLength.textContent = item.todos.length;
+    todosLength.textContent = item.todos().length;
     taskItem.appendChild(todosLength);
 
     taskItem.addEventListener("click", () => {

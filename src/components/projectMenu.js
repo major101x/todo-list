@@ -6,6 +6,9 @@ export const projectMenu = () => {
   // Selects the projects menu
   const projectMenu = document.querySelector(".projects-container");
 
+  // Clears previous content before new render
+  projectMenu.textContent = "";
+
   // Gets the project list
   const projectList = projects.getProjects();
 
