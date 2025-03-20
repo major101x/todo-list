@@ -156,6 +156,21 @@ button:hover {
   gap: 4px;
 }
 
+.projects-menu .project-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.projects-menu .project-item-left {
+  display: flex;
+  flex-grow: 1;
+  gap: 12px;
+}
+
+.project-item .todo-length {
+  font-size: 1.4rem;
+}
+
 /* TODO CONTAINER */
 .todo-container {
   width: 80%;

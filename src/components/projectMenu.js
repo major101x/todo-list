@@ -15,15 +15,24 @@ export const projectMenu = () => {
     projectItem.classList.add("project-item");
     projectMenu.appendChild(projectItem);
 
+    const projectItemLeft = document.createElement("div");
+    projectItemLeft.classList.add("project-item-left");
+    projectItem.appendChild(projectItemLeft);
+
     const projectIconElem = document.createElement("img");
     projectIconElem.classList.add("icon");
     projectIconElem.src = projectIcon;
-    projectItem.appendChild(projectIconElem);
+    projectItemLeft.appendChild(projectIconElem);
 
     const projectItemTitle = document.createElement("div");
     projectItemTitle.classList.add("project-item-title");
     projectItemTitle.textContent = project.title;
-    projectItem.appendChild(projectItemTitle);
+    projectItemLeft.appendChild(projectItemTitle);
+
+    const todosLength = document.createElement("span");
+    todosLength.classList.add("todo-length");
+    todosLength.textContent = project.todoList.getTodos().length;
+    projectItem.appendChild(todosLength);
 
     // Event listener to display the project's todos when clicked
     projectItem.addEventListener("click", () => {
