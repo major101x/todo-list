@@ -1,7 +1,6 @@
 import Project from "./project";
 import { isToday, isThisWeek, isPast } from "date-fns";
 
-
 // Factory function for managing a collection of project instances
 export const projectFactory = () => {
   const projects = [];
@@ -72,7 +71,7 @@ export const projectFactory = () => {
       project.todoList.removeTodo(todoTitle);
     }
   };
-  
+
   // Returns all todos in all projects
   const getAllTodos = () => {
     const allTodos = projects.flatMap((project) => project.todoList.getTodos());
@@ -97,6 +96,21 @@ export const projectFactory = () => {
     return allTodos.filter((todo) => isPast(new Date(todo.dueDate)));
   };
 
+  // Returns the parent project of the todo title
+  const getTodoParentProject = (todoTitle) => {
+    let parentProject = null;
+    for (const project of projects) {
+      const foundProject = project.todoList
+        .getTodos()
+        .find((todo) => todo.title === todoTitle);
+      if (foundProject) {
+        parentProject = project.title;
+        break;
+      }
+    }
+    return parentProject;
+  };
+
   return {
     getProjects,
     printProjects,
@@ -111,5 +125,6 @@ export const projectFactory = () => {
     getAllTodayTodos,
     getAllUpcomingTodos,
     getAllOverdueTodos,
+    getTodoParentProject,
   };
 };
