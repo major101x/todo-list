@@ -3,6 +3,7 @@ import { projectFactory } from "./modules/projectModule/projectFactory";
 import { projectMenu } from "./components/projectMenu";
 import { addProjectModal, addTaskModal, openModal } from "./components/modals";
 import { todoMenu } from "./components/todoMenu";
+import { todoDisplay } from "./components/todoDisplay";
 
 // Calls the projectFactory function to initialize the projects object
 export const projects = projectFactory();
@@ -104,3 +105,6 @@ todoMenu();
 
 // Displays the project menu
 projectMenu();
+
+// Displays all Todos on load
+todoDisplay(projects.getAllTodos(), "All Tasks");
