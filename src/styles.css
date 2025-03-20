@@ -129,6 +129,27 @@ button:hover {
   font-size: 1.6rem;
 }
 
+.tasks-menu .tasks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tasks-menu .task-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tasks-menu .task-item-left {
+  display: flex;
+  flex-grow: 1;
+  gap: 12px;
+}
+
+.task-item .todo-length {
+  font-size: 1.4rem;
+}
+
 .projects-menu {
   display: flex;
   flex-direction: column;

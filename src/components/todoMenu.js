@@ -1,0 +1,85 @@
+import allTasksIcon from "../assets/icons/all-tasks.svg";
+import todayTasksIcon from "../assets/icons/today.svg";
+import upcomingTasksIcon from "../assets/icons/upcoming.svg";
+import overdueTasksIcon from "../assets/icons/overdue.svg";
+import { projects } from "..";
+import { todoDisplay } from "./todoDisplay";
+import {
+  allTasksDisplay,
+  todayTasksDisplay,
+  upcomingTasksDisplay,
+  overdueTasksDisplay,
+} from "../screens";
+
+export const todoMenu = () => {
+  // Create task items to render
+  const taskItems = [
+    {
+      title: "All Tasks",
+      btnClass: "all-tasks-btn",
+      iconSrc: allTasksIcon,
+      taskTitleClass: "all-tasks",
+      todos: projects.getAllTodos(),
+      display: allTasksDisplay,
+    },
+    {
+      title: "Today",
+      btnClass: "today-tasks-btn",
+      iconSrc: todayTasksIcon,
+      taskTitleClass: "today",
+      todos: projects.getAllTodayTodos(),
+      display: todayTasksDisplay,
+    },
+    {
+      title: "Upcoming",
+      btnClass: "upcoming-tasks-btn",
+      iconSrc: upcomingTasksIcon,
+      taskTitleClass: "upcoming",
+      todos: projects.getAllUpcomingTodos(),
+      display: upcomingTasksDisplay,
+    },
+    {
+      title: "Overdue",
+      btnClass: "overdue-tasks-btn",
+      iconSrc: overdueTasksIcon,
+      taskTitleClass: "overdue",
+      todos: projects.getAllOverdueTodos(),
+      display: overdueTasksDisplay,
+    },
+  ];
+
+  // Selects the todo menu
+  const todosMenu = document.querySelector(".tasks-container");
+
+  // Creates task items and renders them on the todos menu
+  taskItems.forEach((item) => {
+    const taskItem = document.createElement("button");
+    taskItem.classList.add("task-item");
+    taskItem.classList.add(item.btnClass);
+    todosMenu.appendChild(taskItem);
+
+    const taskItemLeft = document.createElement("div");
+    taskItemLeft.classList.add("task-item-left");
+    taskItem.appendChild(taskItemLeft);
+
+    const taskIconElem = document.createElement("img");
+    taskIconElem.classList.add("icon");
+    taskIconElem.src = item.iconSrc;
+    taskItemLeft.appendChild(taskIconElem);
+
+    const taskItemTitle = document.createElement("div");
+    taskItemTitle.classList.add("task-item-title");
+    taskItemTitle.classList.add(item.taskTitleClass);
+    taskItemTitle.textContent = item.title;
+    taskItemLeft.appendChild(taskItemTitle);
+
+    const todosLength = document.createElement("span");
+    todosLength.classList.add("todo-length");
+    todosLength.textContent = item.todos.length;
+    taskItem.appendChild(todosLength);
+
+    taskItem.addEventListener("click", () => {
+      item.display();
+    });
+  });
+};

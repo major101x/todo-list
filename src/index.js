@@ -1,13 +1,8 @@
 import "./styles.css";
 import { projectFactory } from "./modules/projectModule/projectFactory";
 import { projectMenu } from "./components/projectMenu";
-import {
-  allTasksDisplay,
-  todayTasksDisplay,
-  upcomingTasksDisplay,
-  overdueTasksDisplay,
-} from "./screens";
 import { addProjectModal, addTaskModal } from "./components/modals";
+import { todoMenu } from "./components/todoMenu";
 
 // Calls the projectFactory function to initialize the projects object
 export const projects = projectFactory();
@@ -100,31 +95,14 @@ console.log(projects.getAllOverdueTodos());
 
 console.log(projects.getProjects());
 
-// Displays all tasks
-allTasksBtn.addEventListener("click", () => {
-  allTasksDisplay();
-});
-
-// Displays today's tasks
-todayTasksBtn.addEventListener("click", () => {
-  todayTasksDisplay();
-});
-
-// Displays upcoming tasks
-upcomingTasksBtn.addEventListener("click", () => {
-  upcomingTasksDisplay();
-});
-
-// Displays overdue tasks
-overdueTasksBtn.addEventListener("click", () => {
-  overdueTasksDisplay();
-});
-
 // Allows the creation of tasks
 addTaskModal();
 
 // Allows the creation on projects
 addProjectModal();
 
-// Calls the projectMenu function
+// Displays the todo menu
+todoMenu();
+
+// Displays the project menu
 projectMenu();
