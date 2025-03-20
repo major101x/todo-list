@@ -41,6 +41,7 @@ export const todoMenu = () => {
   // Selects the todo menu
   const todosMenu = document.querySelector(".tasks-container");
 
+  // Clears previous content before new render
   todosMenu.textContent = "";
 
   // Creates task items and renders them on the todos menu
