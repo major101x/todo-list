@@ -57,10 +57,15 @@ export const projectFactory = () => {
   };
 
   // Edits a todo within a specific project
-  const editTodoInProject = (projectTitle, todoTitle, key, newValue) => {
+  const editTodoInProject = (projectTitle, todoTitle, valuesObject) => {
     const project = projects.find((project) => project.title === projectTitle);
     if (project) {
-      project.todoList.editTodo(todoTitle, key, newValue);
+      const oldTodo = project.todoList
+        .getTodos()
+        .find((todo) => todo.title === todoTitle);
+      if (oldTodo) {
+        project.todoList.editTodo(oldTodo.title, valuesObject);
+      }
     }
   };
 
