@@ -1,5 +1,6 @@
 import editIcon from "../assets/icons/edit.svg";
 import deleteIcon from "../assets/icons/delete.svg";
+import { editTaskModal, openModal } from "./modals";
 
 export const todoDisplay = (todoList, todoTitle) => {
   // Select the todo container
@@ -107,6 +108,15 @@ export const todoDisplay = (todoList, todoTitle) => {
     todoItemDeleteIcon.classList.add("icon");
     todoItemDeleteIcon.src = deleteIcon;
     todoItemDeleteButton.appendChild(todoItemDeleteIcon);
+
+    // Event listener to open the edit modal to edit a todo
+    todoItemEditButton.addEventListener("click", () => {
+      const editTaskModalElem = document.querySelector("#edit-task-modal");
+      openModal(editTaskModalElem);
+      editTaskModal(todo);
+    });
+
+    console.log(todoList);
 
     // Event listener to update the checked status and refresh the UI
     todoItemCheckbox.addEventListener("change", () => {
