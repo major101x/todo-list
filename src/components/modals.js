@@ -59,11 +59,14 @@ export const addTaskModal = () => {
       projects.getTodosInProject(taskProjectSelect.value),
       taskProjectSelect.value
     );
+    todoMenu();
+    projectMenu();
     closeModal(addTaskModalElem);
 
     // Reset all inputs
     allInputs.forEach((input) => (input.value = ""));
     taskPrioritySelect.value = "none";
+    taskProjectSelect.textContent = "";
   });
 };
 

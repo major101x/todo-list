@@ -38,6 +38,20 @@ export const projectMenu = () => {
     todosLength.textContent = project.todoList.getTodos().length;
     projectItem.appendChild(todosLength);
 
+    const todoTitleElement = document.querySelector(".project-title");
+
+    // Sets menuItem to active if it matches todoHeader textContent
+    if (todoTitleElement.textContent === projectItemTitle.textContent) {
+      document
+        .querySelectorAll(".task-item")
+        .forEach((btn) => btn.classList.remove("active"));
+      document
+        .querySelectorAll(".project-item")
+        .forEach((btn) => btn.classList.remove("active"));
+
+      projectItem.classList.add("active");
+    }
+
     // Event listener to display the project's todos when clicked
     projectItem.addEventListener("click", () => {
       // Remove "active" from all task and project items

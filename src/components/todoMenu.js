@@ -71,6 +71,20 @@ export const todoMenu = () => {
     todosLength.textContent = item.todos().length;
     taskItem.appendChild(todosLength);
 
+    const todoTitleElement = document.querySelector(".project-title");
+
+    // Sets menuItem to active if it matches todoHeader textContent
+    if (todoTitleElement.textContent === taskItemTitle.textContent) {
+      document
+        .querySelectorAll(".task-item")
+        .forEach((btn) => btn.classList.remove("active"));
+      document
+        .querySelectorAll(".project-item")
+        .forEach((btn) => btn.classList.remove("active"));
+
+      taskItem.classList.add("active");
+    }
+
     taskItem.addEventListener("click", () => {
       // Remove "active" from all task and project items
       document
@@ -86,7 +100,4 @@ export const todoMenu = () => {
       todoDisplay(item.todos(), item.title);
     });
   });
-
-  // Sets all tasks as active menu on page load
-  document.querySelector(".all-tasks-btn").classList.add("active");
 };

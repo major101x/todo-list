@@ -14,7 +14,7 @@ export const todoDisplay = (todoList, todoTitle) => {
   todoHeader.classList.add("todo-header");
   todoContainer.appendChild(todoHeader);
 
-  // Display project title
+  // Display todoList title
   const todoTitleElement = document.createElement("h1");
   todoTitleElement.classList.add("project-title");
   todoTitleElement.textContent = todoTitle;

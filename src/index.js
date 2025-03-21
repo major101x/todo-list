@@ -101,6 +101,8 @@ addProjectBtn.addEventListener("click", () => {
   openModal(addProjectModalElem);
   addProjectModal();
 });
+// Displays all Todos on load
+todoDisplay(projects.getAllTodos(), "All Tasks");
 
 // Displays the todo menu
 todoMenu();
@@ -108,5 +110,4 @@ todoMenu();
 // Displays the project menu
 projectMenu();
 
-// Displays all Todos on load
-todoDisplay(projects.getAllTodos(), "All Tasks");
+
