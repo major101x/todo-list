@@ -178,3 +178,28 @@ export const editTaskModal = (todoObject) => {
     closeModal(editTaskModalElem)
   );
 };
+
+export const deleteTodoModal = (todo) => {
+  const deleteTodoModalElem = document.querySelector("#delete-todo-modal");
+  const todoNameSpan = document.querySelector("#delete-todo-modal .todo-name");
+  const cancelBtn = document.querySelector("#delete-todo-modal .cancel-btn");
+  const deleteBtn = document.querySelector("#delete-todo-modal .delete-btn");
+
+  // Sets the todoName to the todo title
+  todoNameSpan.textContent = todo.title;
+
+  // Gets the parent project of the todo
+  const parentProject = projects.getTodoParentProject(todo.title);
+
+  deleteBtn.addEventListener("click", () => {
+    projects.removeTodoFromProject(parentProject, todo.title);
+    todoDisplay(projects.getTodosInProject(parentProject), parentProject);
+
+    todoMenu();
+    projectMenu();
+    closeModal(deleteTodoModalElem);
+  });
+
+  // Closes the delete todo modal
+  cancelBtn.addEventListener("click", () => closeModal(deleteTodoModalElem));
+};

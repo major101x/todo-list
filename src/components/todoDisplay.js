@@ -1,6 +1,6 @@
 import editIcon from "../assets/icons/edit.svg";
 import deleteIcon from "../assets/icons/delete.svg";
-import { editTaskModal, openModal } from "./modals";
+import { deleteTodoModal, editTaskModal, openModal } from "./modals";
 
 export const todoDisplay = (todoList, todoTitle) => {
   // Select the todo container
@@ -114,6 +114,13 @@ export const todoDisplay = (todoList, todoTitle) => {
       const editTaskModalElem = document.querySelector("#edit-task-modal");
       openModal(editTaskModalElem);
       editTaskModal(todo);
+    });
+
+    // Event listener to open a modal to confirm deleting a todo
+    todoItemDeleteButton.addEventListener("click", () => {
+      const deleteTodoModalElem = document.querySelector("#delete-todo-modal");
+      openModal(deleteTodoModalElem);
+      deleteTodoModal(todo);
     });
 
     console.log(todoList);
