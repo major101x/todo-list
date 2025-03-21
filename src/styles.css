@@ -11,9 +11,10 @@
   --secondary: #b9bae9;
   --secondaryHover: #8b8cda;
   --accent: #3236a4;
-  --highPriority: #ff0000;
-  --mediumPriority: #ffcc00;
-  --lowPriority: #00ff00;
+  --highPriority: #d00000;
+  --mediumPriority: #eeba0b;
+  --lowPriority: #008000;
+  --nonePriority: #495057;
 }
 
 /* RESET */
@@ -334,6 +335,10 @@ button:hover {
   background-color: var(--highPriority);
 }
 
+.nonePriority-todo {
+  background-color: var(--nonePriority);
+}
+
 .lowPriority-text {
   color: var(--lowPriority);
 }
@@ -344,6 +349,10 @@ button:hover {
 
 .highPriority-text {
   color: var(--highPriority);
+}
+
+.nonePriority-text {
+  color: var(--nonePriority);
 }
 
 .todo-item-date {
