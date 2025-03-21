@@ -16,6 +16,7 @@ export const projectMenu = () => {
   projectList.forEach((project) => {
     const projectItem = document.createElement("button");
     projectItem.classList.add("project-item");
+    projectItem.classList.add(project.title);
     projectMenu.appendChild(projectItem);
 
     const projectItemLeft = document.createElement("div");
@@ -39,6 +40,16 @@ export const projectMenu = () => {
 
     // Event listener to display the project's todos when clicked
     projectItem.addEventListener("click", () => {
+      // Remove "active" from all task and project items
+      document
+        .querySelectorAll(".task-item")
+        .forEach((btn) => btn.classList.remove("active"));
+      document
+        .querySelectorAll(".project-item")
+        .forEach((btn) => btn.classList.remove("active"));
+
+      // Add "active" to the clicked task item
+      projectItem.classList.add("active");
       const todoList = projects.getTodosInProject(project.title);
       todoDisplay(todoList, project.title);
     });

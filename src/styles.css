@@ -141,6 +141,10 @@ button:hover {
   justify-content: space-between;
 }
 
+.tasks-menu .task-item.active {
+  background-color: var(--secondaryHover);
+}
+
 .tasks-menu .task-item-left {
   display: flex;
   flex-grow: 1;
@@ -181,6 +185,10 @@ button:hover {
 .projects-menu .project-item {
   display: flex;
   justify-content: space-between;
+}
+
+.projects-menu .project-item.active {
+  background-color: var(--secondaryHover);
 }
 
 .projects-menu .project-item-left {
@@ -510,5 +518,5 @@ dialog .confirm-btn:hover {
 
 #delete-todo-modal .todo-name {
   font-weight: 700;
-  font-size: 2.0rem;
+  font-size: 2rem;
 }

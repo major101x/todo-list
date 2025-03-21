@@ -45,7 +45,7 @@ export const todoMenu = () => {
   todosMenu.textContent = "";
 
   // Creates task items and renders them on the todos menu
-  taskItems.forEach((item) => {
+  taskItems.forEach((item, index) => {
     const taskItem = document.createElement("button");
     taskItem.classList.add("task-item");
     taskItem.classList.add(item.btnClass);
@@ -72,7 +72,21 @@ export const todoMenu = () => {
     taskItem.appendChild(todosLength);
 
     taskItem.addEventListener("click", () => {
+      // Remove "active" from all task and project items
+      document
+        .querySelectorAll(".task-item")
+        .forEach((btn) => btn.classList.remove("active"));
+      document
+        .querySelectorAll(".project-item")
+        .forEach((btn) => btn.classList.remove("active"));
+
+      // Add "active" to the clicked task item
+      taskItem.classList.add("active");
+
       todoDisplay(item.todos(), item.title);
     });
   });
+
+  // Sets all tasks as active menu on page load
+  document.querySelector(".all-tasks-btn").classList.add("active");
 };
