@@ -5,6 +5,38 @@ import { isToday, isThisWeek, isPast } from "date-fns";
 export const projectFactory = () => {
   const projects = [];
 
+  const updateLocalStorage = () => {
+    localStorage.setItem("projects", JSON.stringify(projects));
+  };
+
+  const fetchFromLocalStorage = () => {
+    const storedProjectData = localStorage.getItem("projects");
+    if (storedProjectData) {
+      const projectData = JSON.parse(storedProjectData);
+      console.log(projectData);
+
+      // projectData.forEach((project) => {
+      //   projects.push({
+      //     title: project.title,
+      //     todoList: project.todoList.getTodos(),
+      //   });
+      // });
+      // console.log(
+      //   getProjects().map((project) => {
+      //     return {
+      //       title: project.title,
+      //       todoList: project.todoList.getTodos(),
+      //     };
+      //   })
+      // );
+
+      return projectData;
+    } else {
+      console.log("User data not found in local storage");
+      return projects;
+    }
+  };
+
   // Returns all projects
   const getProjects = () => projects;
 
@@ -131,5 +163,7 @@ export const projectFactory = () => {
     getAllUpcomingTodos,
     getAllOverdueTodos,
     getTodoParentProject,
+    updateLocalStorage,
+    fetchFromLocalStorage,
   };
 };

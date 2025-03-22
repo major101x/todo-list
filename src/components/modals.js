@@ -67,6 +67,7 @@ export const addTaskModal = () => {
     allInputs.forEach((input) => (input.value = ""));
     taskPrioritySelect.value = "none";
     taskProjectSelect.textContent = "";
+    projects.updateLocalStorage();
   });
 };
 
@@ -95,6 +96,7 @@ export const addProjectModal = () => {
     projectTitleInput.value = "";
     projectMenuDiv.textContent = "";
     projectMenu();
+    projects.updateLocalStorage();
   });
 };
 
@@ -173,6 +175,7 @@ export const editTaskModal = (todoObject) => {
       projectMenu();
     }
 
+    projects.updateLocalStorage();
     closeModal(editTaskModalElem);
   });
 
@@ -200,6 +203,7 @@ export const deleteTodoModal = (todo) => {
 
     todoMenu();
     projectMenu();
+    projects.updateLocalStorage();
     closeModal(deleteTodoModalElem);
   });
 

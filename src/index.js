@@ -8,6 +8,8 @@ import { todoDisplay } from "./components/todoDisplay";
 // Calls the projectFactory function to initialize the projects object
 export const projects = projectFactory();
 
+projects.fetchFromLocalStorage();
+
 const addTaskModalElem = document.querySelector("#add-task-modal");
 const addTaskBtn = document.querySelector(".add-task-btn");
 

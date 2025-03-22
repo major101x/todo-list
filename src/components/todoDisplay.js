@@ -123,13 +123,11 @@ export const todoDisplay = (todoList, todoTitle) => {
       deleteTodoModal(todo);
     });
 
-    console.log(todoList);
-
     // Event listener to update the checked status and refresh the UI
     todoItemCheckbox.addEventListener("change", () => {
       todo.checked = todoItemCheckbox.checked;
+      projects.updateLocalStorage();
       todoDisplay(todoList, todoTitle);
-      console.log(todo);
     });
   });
 };
