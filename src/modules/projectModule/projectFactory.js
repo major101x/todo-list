@@ -6,32 +6,40 @@ export const projectFactory = () => {
   const projects = [];
 
   const updateLocalStorage = () => {
+    projects.forEach((project) => {
+      project.todoList.getTodos = project.todoList.getTodos.toString();
+      project.todoList.printTodos = project.todoList.printTodos.toString();
+      project.todoList.addTodo = project.todoList.addTodo.toString();
+      project.todoList.editTodo = project.todoList.editTodo.toString();
+      project.todoList.removeTodo = project.todoList.removeTodo.toString();
+    });
     localStorage.setItem("projects", JSON.stringify(projects));
   };
 
   const fetchFromLocalStorage = () => {
+    console.log(projects);
+    projects.forEach((project) => {
+      console.log(project.todoList.getTodos.toString());
+    });
     const storedProjectData = localStorage.getItem("projects");
     if (storedProjectData) {
-      const projectData = JSON.parse(storedProjectData);
+      let projectData = JSON.parse(storedProjectData);
+      // debugger;
+      projectData.forEach((project) => {
+        project.todoList.getTodos = eval("(" + project.todoList.getTodos + ")");
+        project.todoList.printTodos = eval(
+          "(" + project.todoList.printTodos + ")"
+        );
+        project.todoList.addTodo = eval("(" + project.todoList.addTodo + ")");
+        project.todoList.editTodo = eval("(" + project.todoList.editTodo + ")");
+        project.todoList.removeTodo = eval(
+          "(" + project.todoList.removeTodo + ")"
+        );
+      });
       console.log(projectData);
       console.log(eval(projectData));
 
-      // projectData.forEach((project) => {
-      //   projects.push({
-      //     title: project.title,
-      //     todoList: project.todoList.getTodos(),
-      //   });
-      // });
-      // console.log(
-      //   getProjects().map((project) => {
-      //     return {
-      //       title: project.title,
-      //       todoList: project.todoList.getTodos(),
-      //     };
-      //   })
-      // );
-
-      return eval(projectData);
+      return projectData;
     } else {
       console.log("User data not found in local storage");
       return projects;
