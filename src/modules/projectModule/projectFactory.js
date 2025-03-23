@@ -14,6 +14,7 @@ export const projectFactory = () => {
     if (storedProjectData) {
       const projectData = JSON.parse(storedProjectData);
       console.log(projectData);
+      console.log(eval(projectData));
 
       // projectData.forEach((project) => {
       //   projects.push({
@@ -30,7 +31,7 @@ export const projectFactory = () => {
       //   })
       // );
 
-      return projectData;
+      return eval(projectData);
     } else {
       console.log("User data not found in local storage");
       return projects;
@@ -38,7 +39,7 @@ export const projectFactory = () => {
   };
 
   // Returns all projects
-  const getProjects = () => projects;
+  const getProjects = () => fetchFromLocalStorage();
 
   // Logs all projects and their todos to the console
   const printProjects = () =>
