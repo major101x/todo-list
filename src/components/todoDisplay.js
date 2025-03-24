@@ -1,6 +1,7 @@
 import editIcon from "../assets/icons/edit.svg";
 import deleteIcon from "../assets/icons/delete.svg";
 import { deleteTodoModal, editTaskModal, openModal } from "./modals";
+import { projects } from "..";
 
 export const todoDisplay = (todoList, todoTitle) => {
   // Select the todo container
