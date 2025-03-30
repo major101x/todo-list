@@ -2,7 +2,7 @@
 A website that lets you create todos and projects to store them in.
 
 ## Lessons Learned
-I learned about the `localStorage` web api and how to use it to **store and stringify**, **retrieve and parse** data.
+I learned about the `localStorage` web api and how to use `JSON` to **store and stringify**, **retrieve and parse** data.
 
 I strengthened my knowledge of classes and factory functions. **I prefer classes** due to its scalable syntax and portability across different programming languages.
 
