@@ -8,8 +8,6 @@ import { todoDisplay } from "./components/todoDisplay";
 // Calls the projectFactory function to initialize the projects object
 export const projects = projectFactory();
 
-projects.fetchFromLocalStorage();
-
 const addTaskModalElem = document.querySelector("#add-task-modal");
 const addTaskBtn = document.querySelector(".add-task-btn");
 
@@ -76,23 +74,11 @@ projects.addTodoToProject("silo", {
 });
 
 /* Edits todos in the project */
-projects.editTodoInProject("nig", "mao", {"description": "hi"});
-projects.editTodoInProject("nig", "brock", {"checked": false});
+projects.editTodoInProject("nig", "mao", { description: "hi" });
+projects.editTodoInProject("nig", "brock", { checked: false });
 
 /* Removes todos from the project */
 projects.removeTodoFromProject("nig", "sissy");
-console.log(projects.getTodosInProject("nig"));
-console.log(projects.getProjects());
-
-/* Tests general project functions */
-console.log(projects.getAllTodos());
-console.log(projects.getAllTodayTodos());
-console.log(projects.getAllUpcomingTodos());
-console.log(projects.getAllOverdueTodos());
-
-console.log(projects.getProjects());
-
-console.log(projects.getTodoParentProject("cross"));
 
 addTaskBtn.addEventListener("click", () => {
   openModal(addTaskModalElem);
@@ -106,10 +92,10 @@ addProjectBtn.addEventListener("click", () => {
 // Displays all Todos on load
 todoDisplay(projects.getAllTodos(), "All Tasks");
 
+projects.fetchFromLocalStorage();
+
 // Displays the todo menu
 todoMenu();
 
 // Displays the project menu
 projectMenu();
-
-

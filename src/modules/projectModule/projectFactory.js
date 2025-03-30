@@ -6,48 +6,44 @@ export const projectFactory = () => {
   const projects = [];
 
   const updateLocalStorage = () => {
-    projects.forEach((project) => {
-      project.todoList.getTodos = project.todoList.getTodos.toString();
-      project.todoList.printTodos = project.todoList.printTodos.toString();
-      project.todoList.addTodo = project.todoList.addTodo.toString();
-      project.todoList.editTodo = project.todoList.editTodo.toString();
-      project.todoList.removeTodo = project.todoList.removeTodo.toString();
-    });
-    localStorage.setItem("projects", JSON.stringify(projects));
+    localStorage.setItem(
+      "projects",
+      JSON.stringify(
+        projects.map((project) => {
+          return {
+            title: project.title,
+            todoList: project.todoList.getTodos(),
+          };
+        })
+      )
+    );
   };
 
   const fetchFromLocalStorage = () => {
-    console.log(projects);
-    projects.forEach((project) => {
-      console.log(project.todoList.getTodos.toString());
-    });
     const storedProjectData = localStorage.getItem("projects");
     if (storedProjectData) {
       let projectData = JSON.parse(storedProjectData);
-      // debugger;
+      projects.length = 0;
       projectData.forEach((project) => {
-        project.todoList.getTodos = eval("(" + project.todoList.getTodos + ")");
-        project.todoList.printTodos = eval(
-          "(" + project.todoList.printTodos + ")"
-        );
-        project.todoList.addTodo = eval("(" + project.todoList.addTodo + ")");
-        project.todoList.editTodo = eval("(" + project.todoList.editTodo + ")");
-        project.todoList.removeTodo = eval(
-          "(" + project.todoList.removeTodo + ")"
-        );
+        const newProject = new Project(project.title);
+        projects.push(newProject);
+        project.todoList.forEach((todo) => {
+          newProject.todoList.addTodo({
+            title: todo.title,
+            description: todo.description,
+            dueDate: todo.dueDate,
+            priority: todo.priority,
+            checked: todo.checked,
+          });
+        });
       });
-      console.log(projectData);
-      console.log(eval(projectData));
-
-      return projectData;
     } else {
       console.log("User data not found in local storage");
-      return projects;
     }
   };
 
   // Returns all projects
-  const getProjects = () => fetchFromLocalStorage();
+  const getProjects = () => projects;
 
   // Logs all projects and their todos to the console
   const printProjects = () =>
